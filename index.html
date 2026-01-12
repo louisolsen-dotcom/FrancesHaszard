@@ -460,6 +460,15 @@
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.classList.remove('active');
+            
+            // Stop all videos in this modal by reloading the iframe src
+            const iframes = modal.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                const src = iframe.src;
+                iframe.src = '';
+                iframe.src = src.replace('autoplay=1', 'autoplay=0');
+            });
+            
             setTimeout(() => {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
@@ -471,11 +480,8 @@
             if (e.key === 'Escape') {
                 const activeModal = document.querySelector('.modal.active');
                 if (activeModal) {
-                    activeModal.classList.remove('active');
-                    setTimeout(() => {
-                        activeModal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }, 400);
+                    const modalId = activeModal.id;
+                    closeModal(modalId);
                 }
             }
         });
