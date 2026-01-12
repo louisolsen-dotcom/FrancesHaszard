@@ -268,6 +268,11 @@
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
                 </a></li>
+                <li><a href="https://vimeo.com/franceshaszard" target="_blank" title="Vimeo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.9765 6.4168c-.105 2.338-1.739 5.5429-4.894 9.6088-3.2679 4.247-6.0258 6.3699-8.2898 6.3699-1.409 0-2.578-1.294-3.553-3.881l-1.9179-7.1138c-.719-2.584-1.488-3.878-2.312-3.878-.179 0-.806.378-1.8809 1.132l-1.129-1.457a315.06 315.06 0 003.501-3.1279c1.579-1.368 2.765-2.085 3.5539-2.159 1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.5069.5389 2.45 1.1309 3.674 1.7759 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.8679 3.434-5.7568 6.7619-5.6368 2.4729.06 3.6279 1.664 3.4929 4.7969z"/>
+                    </svg>
+                </a></li>
                 <li><a href="mailto:hello@franceshaszard.com" title="Email">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -317,6 +322,24 @@
                     </div>
                 </div>
             </div>
+
+            <div class="project-card" onclick="openModal('modal5')">
+                <div class="project-video-container">
+                    <img src="https://github.com/louisolsen-dotcom/FrancesHaszard/blob/main/GIF-Face-eyes.gif?raw=true" alt="Children Are The Orgasm Of The World" class="project-thumbnail">
+                    <div class="project-overlay">
+                        <h3 class="project-title-overlay">Children Are The Orgasm Of The World</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('modal6')">
+                <div class="project-video-container">
+                    <img src="https://github.com/louisolsen-dotcom/FrancesHaszard/blob/main/diggidyDog.gif?raw=true" alt="Nerve Endings" class="project-thumbnail">
+                    <div class="project-overlay">
+                        <h3 class="project-title-overlay">Nerve Endings</h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -328,40 +351,99 @@
     <div id="modal1" class="modal" onclick="closeModal('modal1')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
-            <iframe src="https://player.vimeo.com/video/1131777323?autoplay=1" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen></iframe>
+            <div class="modal-video-container">
+                <iframe src="https://player.vimeo.com/video/1131777323?autoplay=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="modal-description">
+                Written and directed by Jimmy Marble.<br>
+                Animated by Frances Haszard and Louis Olsen<br>
+                Produced by Thomas Grabinski, Jett Steiger, and Lana Kimby<br>
+                Ways & Means and Oh Baby, Inc
+            </div>
         </div>
     </div>
 
     <div id="modal2" class="modal" onclick="closeModal('modal2')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
-            <iframe src="https://player.vimeo.com/video/681522101?autoplay=1" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen></iframe>
+            <div class="modal-video-container">
+                <iframe src="https://player.vimeo.com/video/681522101?autoplay=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="modal-description">
+                Music video for 'Good Taste' by <strong>CHELSEA JADE.</strong><br>
+                Funded by NZ on Air.<br>
+                2022
+            </div>
         </div>
     </div>
 
     <div id="modal3" class="modal" onclick="closeModal('modal3')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
-            <iframe src="https://player.vimeo.com/video/351285432?autoplay=1" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen></iframe>
+            <div class="modal-video-container">
+                <iframe src="https://player.vimeo.com/video/351285432?autoplay=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="modal-description">
+                Music video for 'One Unique Creature' by <strong>LAWRENCE ARABIA.</strong><br>
+                Funded by NZ on Air.<br>
+                2019
+            </div>
         </div>
     </div>
 
     <div id="modal4" class="modal" onclick="closeModal('modal4')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal4')">&times;</button>
-            <iframe src="https://player.vimeo.com/video/234243700?autoplay=1" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen></iframe>
+            <div class="modal-video-container">
+                <iframe src="https://player.vimeo.com/video/234243700?autoplay=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="modal-description">
+                Music video for 'Hours' by <strong>JULIEN DYNE.</strong><br>
+                Funded by NZ on Air.<br>
+                2017
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal" onclick="closeModal('modal5')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal('modal5')">&times;</button>
+            <div class="modal-video-container">
+                <iframe src="https://player.vimeo.com/video/179993355?autoplay=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="modal-description">
+                Animation of the poem 'Children Are The Orgasm Of The World' by <strong>HERA LINDSAY BIRD</strong><br>
+                for <strong>THE PANTOGRAPH PUNCH.</strong><br>
+                2016
+            </div>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal" onclick="closeModal('modal6')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal('modal6')">&times;</button>
+            <div class="modal-video-container">
+                <img src="https://github.com/louisolsen-dotcom/FrancesHaszard/blob/main/diggidyDog.gif?raw=true" alt="Nerve Endings">
+            </div>
+            <div class="modal-description">
+                A series of short animated films made for Season 4 of the FXX series 'CAKE'.<br>
+                <strong>WATCH ON HULU.</strong>
+            </div>
         </div>
     </div>
 
