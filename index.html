@@ -352,12 +352,12 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
             <div class="modal-video-container">
-                <iframe src="https://player.vimeo.com/video/1131777323?autoplay=1" 
+                <iframe data-src="https://player.vimeo.com/video/1131777323?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description">
+            <div class="modal-description" style="text-align: center;">
                 Written and directed by Jimmy Marble.<br>
                 Animated by Frances Haszard and Louis Olsen<br>
                 Produced by Thomas Grabinski, Jett Steiger, and Lana Kimby<br>
@@ -370,12 +370,12 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
             <div class="modal-video-container">
-                <iframe src="https://player.vimeo.com/video/681522101?autoplay=1" 
+                <iframe data-src="https://player.vimeo.com/video/681522101?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description">
+            <div class="modal-description" style="text-align: center;">
                 Music video for 'Good Taste' by <strong>CHELSEA JADE.</strong><br>
                 Funded by NZ on Air.<br>
                 2022
@@ -387,12 +387,12 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
             <div class="modal-video-container">
-                <iframe src="https://player.vimeo.com/video/351285432?autoplay=1" 
+                <iframe data-src="https://player.vimeo.com/video/351285432?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description">
+            <div class="modal-description" style="text-align: center;">
                 Music video for 'One Unique Creature' by <strong>LAWRENCE ARABIA.</strong><br>
                 Funded by NZ on Air.<br>
                 2019
@@ -404,12 +404,12 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal4')">&times;</button>
             <div class="modal-video-container">
-                <iframe src="https://player.vimeo.com/video/234243700?autoplay=1" 
+                <iframe data-src="https://player.vimeo.com/video/234243700?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description">
+            <div class="modal-description" style="text-align: center;">
                 Music video for 'Hours' by <strong>JULIEN DYNE.</strong><br>
                 Funded by NZ on Air.<br>
                 2017
@@ -421,12 +421,12 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal5')">&times;</button>
             <div class="modal-video-container">
-                <iframe src="https://player.vimeo.com/video/179993355" 
+                <iframe data-src="https://player.vimeo.com/video/179993355?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description">
+            <div class="modal-description" style="text-align: center;">
                 Animation of the poem 'Children Are The Orgasm Of The World' by <strong>HERA LINDSAY BIRD</strong><br>
                 for <strong>THE PANTOGRAPH PUNCH.</strong><br>
                 2016
@@ -440,7 +440,7 @@
             <div class="modal-video-container">
                 <img src="https://github.com/louisolsen-dotcom/FrancesHaszard/blob/main/diggidyDog.gif?raw=true" alt="Nerve Endings">
             </div>
-            <div class="modal-description">
+            <div class="modal-description" style="text-align: center;">
                 A series of short animated films made for Season 4 of the FXX series 'CAKE'.<br>
                 <a href="https://www.hulu.com/series/cake-73156265-7a27-4d87-aaa3-72c3018cbf5e" target="_blank">WATCH ON HULU.</a>
             </div>
@@ -452,10 +452,9 @@
             const modal = document.getElementById(modalId);
             const iframe = modal.querySelector('iframe');
             
-            // Add autoplay to iframe when opening
-            if (iframe && iframe.src.indexOf('autoplay') === -1) {
-                const separator = iframe.src.indexOf('?') > -1 ? '&' : '?';
-                iframe.src = iframe.src + separator + 'autoplay=1';
+            // Load iframe src from data-src when opening
+            if (iframe && iframe.hasAttribute('data-src')) {
+                iframe.src = iframe.getAttribute('data-src');
             }
             
             modal.style.display = 'flex';
@@ -469,12 +468,10 @@
             const modal = document.getElementById(modalId);
             modal.classList.remove('active');
             
-            // Stop all videos in this modal by reloading the iframe src
+            // Stop all videos in this modal by clearing src
             const iframes = modal.querySelectorAll('iframe');
             iframes.forEach(iframe => {
-                const src = iframe.src;
                 iframe.src = '';
-                iframe.src = src.replace('autoplay=1', 'autoplay=0');
             });
             
             setTimeout(() => {
