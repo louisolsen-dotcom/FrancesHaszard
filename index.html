@@ -98,68 +98,10 @@
             transform: translateY(-8px);
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 1200px;
-            aspect-ratio: 16/9;
-            transform: scale(0.7);
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: #D15D5D;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: opacity 0.3s;
-        }
-
-        .modal-close:hover {
-            opacity: 0.7;
-        }
-
-        .modal iframe {
-            width: 100%;
-            height: 100%;
-        }
-
         .project-video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 ratio */
+            padding-bottom: 56.25%;
             background: #000;
             overflow: hidden;
         }
@@ -171,6 +113,20 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .project-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #D15D5D;
+            font-size: 3rem;
+            opacity: 0.8;
         }
 
         .project-overlay {
@@ -196,27 +152,122 @@
         .project-title-overlay {
             font-size: 2rem;
             font-weight: 700;
-            color: #F7EDED;
+            color: #ffffff !important;
             text-align: center;
             padding: 1rem;
         }
 
-        .project-placeholder {
+        .project-info {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 1600px;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .modal-video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #D15D5D;
-            font-size: 3rem;
-            opacity: 0.8;
+            border: none;
         }
 
-        .project-info {
-            display: none;
+        .modal-video-wrapper img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #D15D5D;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-description {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(209, 93, 93, 0.1);
+            border-radius: 8px;
+            color: #D15D5D;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .modal-description strong {
+            font-weight: 700;
+        }
+
+        .modal-description a {
+            color: #D15D5D;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .modal-description a:hover {
+            color: #7E8CD7;
         }
 
         .cta {
@@ -240,10 +291,6 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -252,12 +299,16 @@
                 gap: 1rem;
             }
 
-            .modal-content {
-                width: 95vw;
-                max-height: 80vh;
+            .modal {
+                padding: 1rem;
             }
 
             .project-title-overlay {
+                font-size: 1.5rem;
+            }
+
+            .modal-close {
+                top: -35px;
                 font-size: 1.5rem;
             }
         }
@@ -374,13 +425,13 @@
     <div id="modal1" class="modal" onclick="closeModal('modal1')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <iframe data-src="https://player.vimeo.com/video/1131777323?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 Written and directed by <a href="https://www.jimmymarble.com/" target="_blank">Jimmy Marble</a>.<br>
                 Animated by Frances Haszard and Louis Olsen<br>
                 Produced by Thomas Grabinski, Jett Steiger, and Lana Kim<br>
@@ -392,13 +443,13 @@
     <div id="modal2" class="modal" onclick="closeModal('modal2')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <iframe data-src="https://player.vimeo.com/video/681522101?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 Music video for 'Good Taste' by <a href="https://www.chelseajade.co/" target="_blank"><strong>CHELSEA JADE.</strong></a><br>
                 Funded by NZ on Air.<br>
                 2022
@@ -409,13 +460,13 @@
     <div id="modal3" class="modal" onclick="closeModal('modal3')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <iframe data-src="https://player.vimeo.com/video/351285432?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 Music video for 'One Unique Creature' by <a href="https://www.lawrencearabia.com/" target="_blank"><strong>LAWRENCE ARABIA.</strong></a><br>
                 Funded by NZ on Air.<br>
                 2019
@@ -426,14 +477,14 @@
     <div id="modal4" class="modal" onclick="closeModal('modal4')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal4')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <iframe data-src="https://player.vimeo.com/video/234243700?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description" style="text-align: center;">
-                Music video for 'Hours' by <strong>JULIEN DYNE.</strong><br>
+            <div class="modal-description">
+                Music video for 'Hours' by <a href="https://www.banishedmusic.com/artist-page/julien-dyne" target="_blank"><strong>JULIEN DYNE.</strong></a><br>
                 Funded by NZ on Air.<br>
                 2017
             </div>
@@ -443,13 +494,13 @@
     <div id="modal5" class="modal" onclick="closeModal('modal5')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal5')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <iframe data-src="https://player.vimeo.com/video/179993355?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 Animation of the poem 'Children Are The Orgasm Of The World' by <strong>HERA LINDSAY BIRD</strong><br>
                 for <strong>THE PANTOGRAPH PUNCH.</strong><br>
                 2016
@@ -460,10 +511,10 @@
     <div id="modal6" class="modal" onclick="closeModal('modal6')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal6')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <img src="https://github.com/louisolsen-dotcom/FrancesHaszard/blob/main/diggidyDog.gif?raw=true" alt="Nerve Endings">
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 A series of short animated films made for Season 4 of the FXX series 'CAKE'.<br>
                 <a href="https://www.hulu.com/series/cake-73156265-7a27-4d87-aaa3-72c3018cbf5e" target="_blank">WATCH ON HULU.</a>
             </div>
@@ -473,13 +524,13 @@
     <div id="modal7" class="modal" onclick="closeModal('modal7')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal7')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <iframe data-src="https://www.youtube.com/embed/75itBVphaH0?autoplay=1" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 Videos for 'Lydia' and 'Let's Just Stay In Bed' by <a href="https://www.facebook.com/kingsweeties/" target="_blank">KING SWEETIES</a>.<br>
                 2020
             </div>
@@ -489,10 +540,10 @@
     <div id="modal8" class="modal" onclick="closeModal('modal8')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal('modal8')">&times;</button>
-            <div class="modal-video-container">
+            <div class="modal-video-wrapper">
                 <img src="https://github.com/louisolsen-dotcom/FrancesHaszard/blob/main/Room%20B+W.gif?raw=true" alt="Outer Monologue">
             </div>
-            <div class="modal-description" style="text-align: center;">
+            <div class="modal-description">
                 A short film created for Mailchimp.<br>
                 <a href="https://mailchimp.com/presents/series/outer-monologue/molly-bingham/" target="_blank">YOU CAN WATCH IT HERE.</a>
             </div>
@@ -504,13 +555,11 @@
             const modal = document.getElementById(modalId);
             const iframe = modal.querySelector('iframe');
             
-            // Load iframe src from data-src when opening
             if (iframe && iframe.hasAttribute('data-src')) {
                 iframe.src = iframe.getAttribute('data-src');
             }
             
             modal.style.display = 'flex';
-            // Trigger reflow to ensure animation plays
             modal.offsetHeight;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -520,7 +569,6 @@
             const modal = document.getElementById(modalId);
             modal.classList.remove('active');
             
-            // Stop all videos in this modal by clearing src
             const iframes = modal.querySelectorAll('iframe');
             iframes.forEach(iframe => {
                 iframe.src = '';
@@ -529,10 +577,9 @@
             setTimeout(() => {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-            }, 400); // Match transition duration
+            }, 400);
         }
 
-        // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const activeModal = document.querySelector('.modal.active');
