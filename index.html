@@ -561,11 +561,14 @@
     <script>
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
-            const iframe = modal.querySelector('iframe');
+            const iframes = modal.querySelectorAll('iframe');
             
-            if (iframe && iframe.hasAttribute('data-src')) {
-                iframe.src = iframe.getAttribute('data-src');
-            }
+            // Load all iframes from data-src when opening
+            iframes.forEach(iframe => {
+                if (iframe.hasAttribute('data-src')) {
+                    iframe.src = iframe.getAttribute('data-src');
+                }
+            });
             
             modal.style.display = 'flex';
             modal.offsetHeight;
